@@ -1,38 +1,465 @@
-.App {
-  text-align: center;
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+:root {
+  --spartan: "Spartan", sans-serif;
+  --antonio: "Antonio", sans-serif;
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+body {
+  background-color: rgb(7, 7, 36);
+  background-image: url(./assets/background-stars.svg);
+  background-position: center;
+  background-attachment: fixed;
+  background-size: cover;
 }
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.active {
+  border-bottom: 3px solid #6d2ed5 !important;
+  color: white !important;
+}
+.creator {
   display: flex;
-  flex-direction: column;
+  /* background-color: red; */
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  font-family: var(--antonio);
+  color: white;
+  font-size: 0.9rem;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+  word-spacing: 4px;
+  letter-spacing: 2px;
+}
+nav {
+  font-family: var(--antonio);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 30px;
+  color: white;
+  padding-top: 15px;
+  position: relative;
+  z-index: 50;
+}
+.hamb {
+  fill: rgba(255, 255, 255, 0.4) !important;
+  transition: all ease-in-out 0.3s;
+}
+
+nav h1 {
+  font-size: 1.7rem;
+}
+.name {
+  border-top: 1px solid rgba(255, 255, 255, 0.4);
+  padding-top: 15px;
+  padding-bottom: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.name h1 {
+  transition: all ease-in-out 0.2s;
+}
+.name h1:hover {
+  border-bottom: 3px solid #6d2ed5 !important;
+  color: white !important;
+  transform: scale(1.1);
+}
+.chevron {
+  margin-right: 30px;
+}
+.menu a {
+  color: white;
+  text-decoration: none;
+  font-family: var(--spartan);
+  font-size: 0.7rem;
+}
+.menu {
+  transition: all ease-in-out 1s;
+  position: absolute;
+  width: 100vw;
+  height: 0;
+  overflow: hidden;
+  background-color: rgb(7, 7, 36);
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  top: 0;
+  z-index: 4;
+}
+.show-menu {
+  /* left: 0; */
+  height: 100vh;
+}
+.menu-container {
+  margin-top: 80px;
+}
+.dot {
+  width: 18px;
+  height: 18px;
+  border-radius: 100px;
+  margin-right: 10px;
+}
+.full-name {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  margin-left: 20px;
+}
+.full-planet {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.views {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  width: 100vw;
+  border-top: 1px solid rgba(128, 128, 128, 0.379);
+  border-bottom: 1px solid rgba(128, 128, 128, 0.379);
+  /* padding: 20px 0; */
+  height: 65px;
+  position: absolute;
+  top: 50px;
+  margin-top: 20px;
+}
+.planet-images {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  position: relative;
+}
+.btn {
+  background-color: transparent;
+  border: none;
+  color: rgba(255, 255, 255, 0.4);
+  font-family: var(--spartan);
+  text-transform: uppercase;
+  font-size: 0.6rem;
+  font-weight: 600;
+  height: 100%;
+  transition: all ease-in-out 0.5s;
+}
+/* .btn:hover {
+  background-color: gray;
+  transform: scale(1.02);
+  cursor: pointer;
+  color: white;
+} */
+.try {
+  width: 12rem;
+  margin-top: 40px;
+}
+.views span {
+  display: none;
+}
+.geology {
+  width: 5rem;
+  position: absolute;
+  bottom: -30px;
+}
+.planet-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  margin-top: 80px;
+}
+.planet-details {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  color: white;
+  width: 90%;
+  margin-top: 40px;
+}
+.planet-details-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.planet-details p {
+  text-align: center;
+  line-height: 25px;
+  margin-top: 20px;
+  font-family: var(--spartan);
+  font-size: 0.7rem;
+  color: rgb(193, 193, 225);
+  font-weight: 500;
+}
+.planet-details h1 {
+  font-family: var(--antonio);
+  font-size: 2rem;
+}
+.wiki-link a {
+  /* color: rgb(106, 106, 160); */
+  color: rgba(255, 255, 255, 0.42);
+  font-weight: 400;
+}
+.wiki-link {
+  color: white;
+  font-family: var(--spartan);
+  font-weight: 500;
+}
+.planet-stats {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+.stats {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 90%;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  margin-bottom: 10px;
+  padding: 15px;
   color: white;
 }
-
-.App-link {
-  color: #61dafb;
+.stats p {
+  color: rgb(193, 193, 225);
+  font-family: var(--spartan);
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 0.6rem;
 }
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.stats h5 {
+  font-family: var(--antonio);
+  font-size: 1.35rem;
+}
+@media screen and (min-width: 750px) {
+  .planet-stats {
+    flex-direction: row;
+    justify-content: space-around;
+    width: 90%;
+    margin-top: 30px;
   }
-  to {
-    transform: rotate(360deg);
+  .try {
+    width: 15rem;
+  }
+  .stats {
+    width: 24%;
+    flex-direction: column;
+    align-items: unset;
+  }
+  .stats p {
+    margin-bottom: 5px;
+    color: rgba(255, 255, 255, 0.4);
+  }
+  .views {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    width: unset;
+    border-top: unset;
+    border-bottom: unset;
+    height: 65px;
+    position: relative;
+    top: unset;
+    margin-top: unset;
+    width: 100%;
+    height: 100%;
+    align-items: flex-end;
+  }
+  .planet-details {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    justify-items: center;
+    margin-top: 40px;
+  }
+  .planet-details-container {
+    align-items: unset;
+  }
+  .planet-details-container p {
+    align-items: unset;
+    text-align: left;
+  }
+  .btn {
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    width: 70%;
+    height: 40px;
+    margin-bottom: 20px;
+    text-align: left;
+    padding: 0 20px;
+  }
+  .active {
+    background-color: #6d2ed5;
+    border-bottom: unset;
+    z-index: -2;
+  }
+  .views span {
+    display: unset;
+  }
+  .num {
+    margin-right: 12px;
+  }
+  nav svg {
+    display: none;
+  }
+  nav h1:hover {
+    cursor: pointer;
+  }
+  .menu {
+    transition: all ease-in-out 1s;
+    position: relative;
+    width: 100vw;
+    height: auto !important;
+    overflow: unset;
+    background-color: transparent;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.4);
+  }
+  .show-menu {
+    /* left: 0; */
+    height: auto !important;
+  }
+  .menu-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: row;
+    width: 100%;
+    margin-top: 30px;
+    padding: 0 40px;
+    height: 50px;
+  }
+  .menu-container a {
+    height: 100% !important;
+  }
+  .name {
+    height: 100% !important;
+  }
+  .full-name {
+    height: 100% !important;
+    padding-top: 10px;
+  }
+  .full-name h1 {
+    height: 100%;
+  }
+  .chevron,
+  .dot {
+    display: none;
+  }
+  .name {
+    border-top: 0;
+    color: rgba(255, 255, 255, 0.627);
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    font-size: 0.5rem;
+    padding: 0;
+    margin: 0;
+  }
+  .full-name {
+    margin: 0;
+  }
+  nav {
+    display: flex;
+    align-items: center;
+    margin-top: 20px;
+    justify-content: center;
+  }
+  .planet-container {
+    margin-top: 30px;
+  }
+  .planet-name {
+    font-size: 3rem !important;
+  }
+  .active-nav {
+    border-bottom: 3px solid #6d2ed5 !important;
+    color: white !important;
+    transform: scale(1.1);
+  }
+  .geology {
+    width: 5rem;
+    bottom: -60px;
+  }
+}
+@media screen and (min-width: 1100px) {
+  .full-planet {
+    display: grid;
+    justify-items: center;
+    grid-template-columns: 1fr 1fr;
+  }
+  .planet-details {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 60%;
+    flex-direction: column;
+  }
+  .planet-details p {
+    font-size: 0.8rem;
+  }
+  .views {
+    align-items: unset;
+  }
+  .try {
+    width: 24rem;
+  }
+  .geology {
+    width: 10rem;
+  }
+  .btn {
+    width: 100%;
+  }
+  nav {
+    align-items: unset;
+    justify-content: unset;
+    position: absolute;
+    margin-top: unset;
+  }
+  .menu-container {
+    margin-top: 20px;
+    justify-content: right;
+    /* width: 60%; */
+  }
+  .menu {
+    width: 100%;
+  }
+  .full-name {
+    margin-left: 40px;
+  }
+  .planet-container {
+    margin-top: 0;
+  }
+  .views {
+    margin-top: 20px;
+  }
+  .planet-stats {
+    margin-top: 60px;
+    width: 80%;
+  }
+  .stats h5 {
+    font-size: 1.7rem;
+  }
+  .stats p {
+    font-size: 0.7rem;
+  }
+  .stats {
+    padding: 20px;
+  }
+  .btn {
+    font-size: 0.7rem;
+    height: 60px;
+    margin-bottom: 10px;
+  }
+  .btn:hover {
+    background-color: gray;
+    transform: scale(1.02);
+    cursor: pointer;
+    color: white;
   }
 }
